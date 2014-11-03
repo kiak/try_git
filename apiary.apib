@@ -2,28 +2,40 @@ FORMAT: 1A
 
 # look4
 This is an api for use in look4 version 1 
+
 # Group Promotion
 Describe an api that relate **Promotion**
 
-## Notes Collection [/promotion]
+## List of all promotion  [/promotion{?limit}]
 
 ### List all Promotion [GET]
 
++ Parameters
+
+    + limit = `20` (optional, number) ... The maximum number of results to return.
+
 + Response 200 (application/json)
 
-        [{
+        [
+        {
           "id": 1,//promotion id 
           "name": "Kim ju restaurant",
           "detail" : "ฉลองเปิดร้าน ลด 20% ",
           "stor_id":1,
           "percent": 20,
           "photo_url":"http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png"
-          
         }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
+          "id": 2,//promotion id 
+          "name": "Capri @ aisiatique",
+          "detail" : "สั่งพิซซ่า ซื้อ 1 แถม 1 ",
+          "stor_id":2,
+          "percent": null,
+          "photo_url":"http://www.foodinc.ca/clients/5196237510/logo.gif"
+        },
+        ]
 
-### Create a Note [POST]
+
+## Create a Promotion [POST]
 + Request (application/json)
 
         { "title": "Buy cheese and bread for breakfast." }
