@@ -1,17 +1,24 @@
 FORMAT: 1A
 
 # look4
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+This is an api for use in look4 version 1 
+# Group Promotion
+Describe an api that relate **Promotion**
 
-# Group Notes
-Notes related resources of the **Notes API**
+## Notes Collection [/promotion]
 
-## Notes Collection [/notes]
-### List all Notes [GET]
+### List all Promotion [GET]
+
 + Response 200 (application/json)
 
         [{
-          "id": 1, "title": "Jogging in park"
+          "id": 1,//promotion id 
+          "name": "Kim ju restaurant",
+          "detail" : "ฉลองเปิดร้าน ลด 20% ",
+          "stor_id":1,
+          "percent": 20,
+          "photo_url":"http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png"
+          
         }, {
           "id": 2, "title": "Pick-up posters from post-office"
         }]
