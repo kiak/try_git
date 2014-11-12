@@ -23,7 +23,10 @@ Describe an api that relate **Promotion**
     + limit = `20` (optional, number) ... The maximum number of results to return.
     + offset = `20`  (optional, number) ... Offset of promotion list for load more perpose 
     + order = `DESC` (optional, string) ... Order of sorting can contain DESC ASC.
-    + coordinate = `Null` (optional,string)  ... input coordinate if in store if not don't input this.
+    + coordinate = `Null` (optional,JSON)  ... User coordination if he/she is in store.
+        + floor_id = 0 (require,number) ... The floor id of current location.
+        + x = (require,number) ... x coordinate of picture
+        + y = (require,number) ... y coordinate of picture 
     
 + Response 200 (application/json)
 
@@ -51,8 +54,69 @@ Describe an api that relate **Promotion**
           "photo_url":"http://www.foodinc.ca/clients/5196237510/logo.gif"
         },
         ]
+        
+        
+## List of all promotion  [/promotion/{id}]
+### List all Promotion [GET]
+เปิดหน้าโปรโมชั่นอันใดอันหนึ่ง 
++ Parameters
+    + id (required, number) ... id ของโปรโมชั่นนั้นๆ 
+    
++ Response 200 (application/json)
 
+        {
+            "id": 1,//promotion id 
+            "name": "Kim ju restaurant",
+            "detail" : "ฉลองเปิดร้าน ลด 20% ",
+            "pinned" : true // true if the promotion are advertorial promotion 
+            "stor_id":1,
+            "percent": 20,
+            "distance": "12m",
+            "promotion_type": "dealnow",// @TODO conclude this 
+            "photo_url":
+            [
+                "http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png",
+                "http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png",
+                "http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png",
+                "http://www.asiatiquethailand.com/cms_directory/content/asiatique/pic/shop-logo/Kimju_Korean_201302212015122563.png"
+            ]
+        }
+        
+        
+        
+## Use promotion [/promotion/use/{promotion_id}]
+### Use promotion [POST]
+กดใช้โปรโมชั่น กดเสร็จจะได้คูปองโค้ดกลับมาเพื่อไปแสดงให้ร้านค้าดู 
++ Parameters
+    + promotion_id (required, number) ... id ของโปรโมชั่นนั้นๆ 
+    
++ Response 200 (application/json)
+
+        {
+            "coupon_code": "A12345",
+            "coupon_valid_until": "2014-11-10T11:13:01+07:00"
+        }
+        
+        
 # Group Directory 
+
+## Use promotion [/directory/{place_id}]
+### Use promotion [GET]
+กดใช้โปรโมชั่น กดเสร็จจะได้คูปองโค้ดกลับมาเพื่อไปแสดงให้ร้านค้าดู 
++ Parameters
+    + place_id (required, number) ... id ของสถานที่นั้นๆ 
+    
++ Response 200 (application/json)
+
+        [
+        {
+            "directory_id":,
+            "directory_name_th":,
+            "directory_name_en":,
+        }
+        ]
+        
+        
 
 # Group search (also click )
 
