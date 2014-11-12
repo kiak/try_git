@@ -110,10 +110,11 @@ Describe an api that relate **Promotion**
 
         [
         {
-            "directory_id":,
-            "directory_name_th":,
-            "directory_name_en":,
-        }
+            "directory_id":1,
+            "directory_name_th":"สาธารณูปโภค",
+            "directory_name_en":"Utility",
+            "directory_icon":"matherial-coffee" //see describetion about matherial icon schema
+        },
         ]
         
         
@@ -148,9 +149,10 @@ A single Note object with all its details
     + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
 ### Retrieve a Note [GET]
-+ Response 200 (application/json)
++ Response ,
+"icon"200 (application/json)directory_
 
-    + Header
+    + :"matherial-coffee"Header
 
             X-My-Header: The Value
 
